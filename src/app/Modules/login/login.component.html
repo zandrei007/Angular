@@ -1,0 +1,33 @@
+<!--<div style="margin-top: 10%" class="col-md-3 col-md-offset-4 animated" [ngClass]="{ 'fadeInDown': isLoaded && !wrongPassword, 'fadeOutDown': isLoggedIn , 'shake': isLoaded && wrongPassword}">
+    <form role="form" (submit)="onSubmit($event, user.value, pass.value)">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="x" class="form-control" id="inputEmail" #user placeholder="Email">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" #pass placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-default">Login</button>-->
+<!--(click)="onSubmit(u.value, p.value)" -->
+<!--</form>
+</div>-->
+
+<div>
+    <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+        <form class="bootstrap-form-with-validation animated" (submit)="onSubmit($event, user.value, pass.value)" [ngClass]="{ 'fadeInDown': isLoaded && !wrongPassword, 'fadeOutDown': isLoggedIn , 'shake': isLoaded && wrongPassword}">
+            <h2 class="text-center">Login</h2>
+            <div class="form-group has-error has-feedback">
+                <input class="form-control input-lg" type="email" #user name="email-input" placeholder="email@address.com" id="email-input">
+                <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+            </div>
+            <div class="form-group has-warning has-feedback">
+                <input class="form-control input-lg" type="password" #pass name="password-input" placeholder="password" id="password-input">
+                <span class="glyphicon glyphicon-warning-sign form-control-feedback" aria-hidden="true"></span>
+            </div>
+            <div class="form-group has-warning">
+                <button class="btn btn-primary" type="submit">Login</button>
+            </div>
+        </form>
+    </div>
+</div>

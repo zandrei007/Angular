@@ -1,1 +1,2 @@
 npm install jquery
+npm install ng2-bootstrap bootstrap --save

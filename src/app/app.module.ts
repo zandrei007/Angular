@@ -2,8 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { routes } from './app.routes';
 
 import { AppComponent } from './app.component';
+import { RouterModule } from '@angular/router';
+import { LoginModule } from './Modules/login/login.module';
 
 @NgModule({
   declarations: [
@@ -12,7 +15,9 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(routes),
+    LoginModule
   ],
   providers: [],
   bootstrap: [AppComponent]

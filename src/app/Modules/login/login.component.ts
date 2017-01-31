@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { StorageProvider } from '../../services/storage.provider';
 import { LoginService } from './login.service';
+import { AuthenticationService } from '../../_services/index';
 
 @Component({
   selector: 'app-login',
-	providers: [LoginService, StorageProvider],
+	providers: [LoginService, StorageProvider, AuthenticationService],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
@@ -31,7 +32,10 @@ export class LoginComponent implements OnInit {
 		this.isLoaded = true;
 	}
 
-  constructor(private router: Router, loginService: LoginService){
+  constructor(
+		private router: Router, 
+		loginService: LoginService,
+		private _authenticationService: AuthenticationService){
 		this._loginService = loginService;
   }
 	// constructor(private router: Router, loginService: LoginService){ //, 
@@ -41,13 +45,21 @@ export class LoginComponent implements OnInit {
 	onSubmit(event, usr: string, pass: string){
 		event.preventDefault();
 		this.wrongPassword = false;
-		this.isLoggedIn = this._loginService.submitLogin(usr, pass);
+		this._authenticationService.login(usr, pass).subscribe(result => {
+                if (result === true) {
+                    // login successful
+										this.isLoggedIn = true;
+                    setTimeout(()=>{
+											this.router.navigate(['dashboard']); 
+										}, 700);
+                } else {
+										this.wrongPassword = true;
+                }
+            });
+		// this.isLoggedIn = this._loginService.submitLogin(usr, pass);
 
-		this.wrongPassword = !this.isLoggedIn;
 
-		setTimeout(()=>{
-			 this.router.navigate(['dashboard']); 
-			}, 600);
+		
 		
 	}
 

@@ -13,6 +13,6 @@ import { DragulaModule } from 'ng2-dragula';
   ],
   providers: [DashboardRouteGuard],
   declarations: [DashboardComponent, HomeComponent, C1Component],
-  exports: [DashboardComponent, HomeComponent, C1Component]
+  exports: [DashboardComponent, HomeComponent]
 })
 export class DashboardModule { }

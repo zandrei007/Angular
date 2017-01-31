@@ -16,7 +16,7 @@ export class LoginService{
         this._storageProvider.removeCredentials();
         return false;
     }
-
+    
     login(username, password) {
         event.preventDefault();
          

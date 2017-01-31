@@ -36,3 +36,5 @@ C:\Program Files (x86)\Google\Chrome\Application\chrome.exe --remote-debugging-p
 
   ./angular-cli.json  scripts: [] 
 "../node_modules/jquery/dist/jquery.min.js"
+
+http://jasonwatmore.com/post/2016/08/16/angular-2-jwt-authentication-example-tutorial

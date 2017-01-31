@@ -8,7 +8,8 @@ export class DashboardRouteGuard implements CanActivate {
 
   canActivate() {
     // Put the object into storage
-    if(!localStorage.getItem('user')){
+    console.log(localStorage.getItem('currentUser'));
+    if(!localStorage.getItem('currentUser')){
       this.router.navigate(['']); 
       return false;
     }

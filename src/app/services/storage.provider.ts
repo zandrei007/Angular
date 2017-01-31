@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 export class StorageProvider{
     public saveCredentials(cred){
             localStorage.setItem('user', cred);
-
     }
 
     public removeCredentials(){

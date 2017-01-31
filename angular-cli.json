@@ -18,13 +18,28 @@
         "mobile": false,
         "styles": [
             "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+            "../node_modules/dragula/dist/dragula.min.css",
             "styles.css",
-            "./css/animate.css"
+            "./css/animate.css",
+            "./css/dragula.css",
+
+
+            "navbarjs/font-awesome/css/font-awesome.min.css",
+            "./navbarjs/metisMenu/metisMenu.min.css",
+            "./navbarjs/sb-admin-2.min.css"
         ],
         "scripts": [
             "../node_modules/jquery/dist/jquery.min.js",
+            "../node_modules/dragula/dist/dragula.min.js",
+            "../node_modules/bootstrap/dist/js/bootstrap.min.js",
+
             "./externalLib/raphael/raphael.min.js",
-            "./externalLib/morrisjs/morris.min.js"
+            "./externalLib/morrisjs/morris.min.js",
+
+            "./navbarjs/metisMenu/metisMenu.min.js",
+            "./navbarjs/sb-admin-2.min.js"
+
+
         ],
         "environments": {
             "source": "environments/environment.ts",

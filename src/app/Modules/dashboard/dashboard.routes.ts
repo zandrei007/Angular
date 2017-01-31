@@ -12,8 +12,6 @@ export const DashboardRoutes: Route[] = [
 			 ...C1Routes
 		 	],
     	component: DashboardComponent,
-	
-		 canActivate: [DashboardRouteGuard]
-		
+		canActivate: [DashboardRouteGuard]
   	}
 ];

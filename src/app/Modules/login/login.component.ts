@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-// import { LoginService } from './login.service';
 import { Router } from '@angular/router';
-// import { StorageProvider } from '../../services/storage.provider';
+import { StorageProvider } from '../../services/storage.provider';
+import { LoginService } from './login.service';
 
 @Component({
   selector: 'app-login',
-	providers: [],
+	providers: [LoginService, StorageProvider],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
@@ -24,16 +24,16 @@ export class LoginComponent implements OnInit {
 		"http://bestanimations.com/Nature/clouds-floating-over-himalaya-mountains-animated-gif.gif", 
 		"http://bestanimations.com/Nature/deer-crossing-swamp-water-forest-beautiful-nature-animated-gif.gif", 
 		"http://bestanimations.com/Nature/flowing-waterfall-cliff-green-nature-animated-gif.gif"]
-	// _loginService: LoginService;
+	 _loginService: LoginService;
 	ngOnInit(){
 		var nbr = Math.floor(Math.random() * (0 - this.IMAGE_LIST.length)) + this.IMAGE_LIST.length;
 		this.image = this.IMAGE_LIST[nbr];
 		this.isLoaded = true;
 	}
 
-  // constructor(private router: Router){
-
-  // // }
+  constructor(private router: Router, loginService: LoginService){
+		this._loginService = loginService;
+  }
 	// constructor(private router: Router, loginService: LoginService){ //, 
 	// 	  this._loginService = loginService;
 	// }
@@ -41,18 +41,18 @@ export class LoginComponent implements OnInit {
 	onSubmit(event, usr: string, pass: string){
 		event.preventDefault();
 		this.wrongPassword = false;
-		this.wrongPassword = true;
-		// this.isLoggedIn = this._loginService.submitLogin(usr, pass);
+		this.isLoggedIn = this._loginService.submitLogin(usr, pass);
 
-		// this.wrongPassword = !this.isLoggedIn;
+		this.wrongPassword = !this.isLoggedIn;
 
-		// setTimeout(()=>{
-		// 	 this.router.navigate(['dashboard']); 
-		// 	}, 600);
+		setTimeout(()=>{
+			 this.router.navigate(['dashboard']); 
+			}, 600);
 		
 	}
 
 	changeBg(){
+		this.wrongPassword = false;
 			var nbr = Math.floor(Math.random() * (0 - this.IMAGE_LIST.length)) + this.IMAGE_LIST.length;
 		this.image = this.IMAGE_LIST[nbr];
 	}

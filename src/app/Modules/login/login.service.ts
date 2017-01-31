@@ -1,19 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Headers,RequestOptions, Http } from '@angular/http';
-// import { StorageProvider } from '../../services/storage.provider';
+ import { StorageProvider } from '../../services/storage.provider';
 
 @Injectable()
 export class LoginService{
 
-    // constructor(private _storageProvider: StorageProvider,private http: Http){
-    // }
+    constructor(private _storageProvider: StorageProvider,private http: Http){
+    }
     submitLogin(user: string, password: string){
-        // if(user == "asd@dd"){
-        //     this._storageProvider.saveCredentials({ user: user, token: "randomToken"});
-        //     // this.login(user, password);
-        //     return true;
-        // }
-        // this._storageProvider.removeCredentials();
+        if(user == "asd@dd"){
+            this._storageProvider.saveCredentials({ user: user, token: "randomToken"});
+            // this.login(user, password);
+            return true;
+        }
+        this._storageProvider.removeCredentials();
         return false;
     }
 

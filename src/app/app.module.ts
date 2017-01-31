@@ -7,6 +7,7 @@ import { routes } from './app.routes';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { LoginModule } from './Modules/login/login.module';
+import { DashboardModule } from './Modules/dashboard/dashboard.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { LoginModule } from './Modules/login/login.module';
     FormsModule,
     HttpModule,
     RouterModule.forRoot(routes),
-    LoginModule
+    LoginModule,
+    DashboardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

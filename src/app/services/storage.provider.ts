@@ -1,12 +1,22 @@
 import { Injectable } from '@angular/core';
+import { UserManager } from './UserManager';
+import { Router } from '@angular/router';
 @Injectable()
 export class StorageProvider{
+    constructor(private _userManager: UserManager, private router: Router){
+        
+    }
     public saveCredentials(cred){
-            localStorage.setItem('user', cred);
+            localStorage.setItem('currentUser', cred);
     }
 
     public removeCredentials(){
-        localStorage.removeItem('user');
+        localStorage.removeItem('currentUser');
+        this._userManager.IsLoggedIn = false;
+
+        setTimeout(()=>{
+			 this.router.navigate(['login']); 
+			}, 700);
     }
 
      logout() {

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { StorageProvider } from '../../services/storage.provider';
 import { LoginService } from './login.service';
 import { AuthenticationService } from '../../_services/index';
+import { UserManager } from '../../services/UserManager';
 
 @Component({
   selector: 'app-login',
@@ -35,6 +36,7 @@ export class LoginComponent implements OnInit {
   constructor(
 		private router: Router, 
 		loginService: LoginService,
+		private _userManager: UserManager,
 		private _authenticationService: AuthenticationService){
 		this._loginService = loginService;
   }
@@ -55,6 +57,7 @@ export class LoginComponent implements OnInit {
                 } else {
 										this.wrongPassword = true;
                 }
+								this._userManager.IsLoggedIn = result;
             });
 		// this.isLoggedIn = this._loginService.submitLogin(usr, pass);
 

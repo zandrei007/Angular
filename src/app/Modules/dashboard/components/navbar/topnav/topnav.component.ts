@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 
 export class TopnavComponent implements OnInit {
 
-    constructor(private _storageProvider: StorageProvider, private router: Router){
+    constructor(private _storageProvider: StorageProvider){
     }
 	ngOnInit() { }
 
@@ -19,8 +19,6 @@ export class TopnavComponent implements OnInit {
 		console.log("clicked");
 		this._storageProvider.removeCredentials();
 		// this.router.navigate['login'];
-		setTimeout(()=>{
-			 this.router.navigate(['login']); 
-			}, 600);
+		
 	}
 }

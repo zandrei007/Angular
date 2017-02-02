@@ -103,7 +103,7 @@
         position: absolute;
     }
 </style>
-<div class="vid-container">
+<div class="vid-container animated fadeIn">
     <img class="bgvid bg common" src="{{image}}" />
 
     <div class="inner-container  animated" [ngClass]="{ 'fadeInDown': isLoaded && !wrongPassword, 'fadeOutDown': isLoggedIn , 'shake': isLoaded && wrongPassword}">

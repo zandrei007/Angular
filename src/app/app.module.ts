@@ -10,6 +10,7 @@ import { LoginModule } from './Modules/login/login.module';
 import { DashboardModule } from './Modules/dashboard/dashboard.module';
 import { MockBackend } from '@angular/http/testing';
 import { fakeBackendProvider } from './_helpers/fake-backend';
+import { UserManager } from './services/UserManager';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { fakeBackendProvider } from './_helpers/fake-backend';
     
   ],
   providers: [
+        UserManager,
         // providers used to create fake backend
         fakeBackendProvider,
         MockBackend,

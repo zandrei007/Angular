@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StorageProvider } from '../../../../../services/storage.provider';
 import { Router } from '@angular/router';
+import { UserManager } from '../../../../../services/UserManager';
 
 @Component({
 	selector: 'top-nav',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 
 export class TopnavComponent implements OnInit {
 
-    constructor(private _storageProvider: StorageProvider){
+    constructor(private _storageProvider: StorageProvider, private _userManager: UserManager){
     }
 	ngOnInit() { }
 

@@ -44,6 +44,32 @@ export let fakeBackendProvider = {
                         ));
                     }
                 }
+
+                                // fake authenticate api end point
+                if (connection.request.url.endsWith('/api/getcharts') && connection.request.method === RequestMethod.Post) {
+                    // get parameters from post request
+                    var r = [];
+          
+                    for(var i = 0 ; i< 3;i++)
+                    {
+                        var item = {
+                            Title : "Browser"+i,
+                            data : [
+                                {value: Math.floor(Math.random() * (0 - 30)) +30, label: 'foo'},
+                                {value: Math.floor(Math.random() * (0 - 30)) +30, label: 'bar'},
+                                {value: Math.floor(Math.random() * (0 - 30)) +30, label: 'baz'},
+                                {value: Math.floor(Math.random() * (0 - 30)) +30, label: 'A really really long label'}
+                            ]
+                        };
+                        r.push(item);
+                    }
+                    
+		console.log("here 2x");
+                    connection.mockRespond(new Response(
+                        new ResponseOptions({ status: 200, body: { items: JSON.stringify(r) } })
+                    ));
+                
+                }
  
             }, 500);
  

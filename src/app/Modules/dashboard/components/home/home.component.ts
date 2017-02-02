@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../../../../services/HttpService';
+import { Http, Response } from '@angular/http';
 
 declare var Morris : any;
 declare var $:JQueryStatic;
@@ -12,6 +13,7 @@ declare var $:JQueryStatic;
 
 
 export class HomeComponent implements OnInit {
+	MorrisIds: any[];
 
 	private userAgent = [
 			{value: 1, label: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36"},
@@ -19,12 +21,11 @@ export class HomeComponent implements OnInit {
 			// {value: 3, label: "Mozilla/5.0 (Windows; U; Windows NT 5.0; zh-TW; rv:1.8.0.1) Gecko/20060111 Firefox/0.10"},
 			// {value: 4, label: "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.1.19) Gecko/20081202 Firefox (Debian-2.0.0.19-0etch1)"},
 		];
-	constructor(private httpService: HttpService) { 
+	constructor(private httpService: HttpService, private http: Http) { 
 		
 	}
 
-	ngOnInit() {
-	
+	ngOnInit() { 
 		 var link: string = "http://www.useragentstring.com/?uas=";
 		for(var i = 0 ; i < this.userAgent.length ; i++){
 			console.log("accessing: " + link + this.userAgent[i].label);
@@ -37,35 +38,33 @@ export class HomeComponent implements OnInit {
 			// 	}
         	// );
 		}
-
-
-		new Morris.Donut({
-			element: 'screenchart',
-			data: [
-				{value: 30, label: 'foo'},
-				{value: 15, label: 'bar'},
-				{value: 10, label: 'baz'},
-				{value: 12, label: 'A really really long label'}
-			],
-			resize: true,
-			formatter: function (x) { return x + "%"}
-			}).on('click', function(i, row){
-			console.log(i, row);
-			});
-
-		new Morris.Donut({
-			element: 'oschart',
-			data: [
-				{value: 11, label: 'foo'},
-				{value: 15, label: 'bar'},
-				{value: 10, label: 'baz'},
-				{value: 12, label: 'A really really long label'}
-			],
-			resize: true,
-			formatter: function (x) { return x + "users"}
-			}).on('click', function(i, row){
-			console.log(i, row);
-			});
+		this.MorrisIds = [];
+	 }
+	 addRandomChart(){
+		 this.http.post('/api/getcharts', "")
+            .map((response: Response) => {
+                // login successful if there's a jwt token in the response
+                let token = response.json() && response.json().items;
+                if (token) {
+					return JSON.parse(response.json().items);
+                } else {
+                    return false;
+                }
+            }).subscribe(items => {
+					for(var i = 0 ; i < items.length; i++){
+						this.MorrisIds.push(items[i]);
+							setTimeout(function(data){
+								new Morris.Donut({
+											element: "Morris"+data.Title,
+											data: data.data,
+											resize: true,
+											formatter: function (x) { return x + "%"}
+										}).on('click', function(i, row){
+											console.log(i, row);
+								})
+							}, 50, items[i]);
+					}
+            });
 	 }
 
 	 private StoreResponse(i: number, object){

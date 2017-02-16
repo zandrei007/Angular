@@ -19,17 +19,18 @@ export class AuthenticationService {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
   
-        return this.http.post('http://localhost:64188/api/login', { username: username, password: password })
+        return this.http.post('http://localhost:64188/api/login', { UserName: username, Password: password })
             .map((response: Response) => {
                 // login successful if there's a jwt token in the response
-                let token = response.json() && response.json().token;
+                console.log(response.json());
+                let token = response.json() && response.json().Token;
                 if (token) {
                     // set token property
                     this._userManager.Token = token;
-                    this._userManager.UserName = username;
+                    this._userManager.UserName = response.json().Name;
                     this._userManager.IsLoggedIn = true;
                     // store username and jwt token in local storage to keep user logged in between page refreshes
-                    localStorage.setItem('currentUser', JSON.stringify({ username: username, token: token }));
+                    localStorage.setItem('currentUser', JSON.stringify({ username: response.json().Name, token: token }));
                     
                     // return true to indicate successful login
                     return true;

@@ -28,11 +28,13 @@ import { UserManager } from './services/UserManager';
     
   ],
   providers: [
-        UserManager,
-        // providers used to create fake backend
-        fakeBackendProvider,
-        MockBackend,
-        BaseRequestOptions],
+        UserManager
+        // ,
+        // // providers used to create fake backend
+        // fakeBackendProvider,
+        // MockBackend,
+        // BaseRequestOptions
+        ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

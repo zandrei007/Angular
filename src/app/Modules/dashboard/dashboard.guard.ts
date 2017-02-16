@@ -17,6 +17,7 @@ export class DashboardRouteGuard implements CanActivate {
     var user = JSON.parse(localStorage.getItem('currentUser'));
     this._userManager.IsLoggedIn = true;
     this._userManager.UserName = user.username;
+    this._userManager.Token = user.token;
     return true;//localStorage.getItem('user').token != '';
   }
 }

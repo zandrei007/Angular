@@ -3,4 +3,5 @@ import { Injectable } from '@angular/core';
 export class UserManager{
     public IsLoggedIn: boolean = false;
     public UserName: string = "";
+    public Token: string = "";
 }

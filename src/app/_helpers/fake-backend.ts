@@ -46,7 +46,9 @@ export let fakeBackendProvider = {
                 }
 
                                 // fake authenticate api end point
-                if (connection.request.url.endsWith('/api/getcharts') && connection.request.method === RequestMethod.Post) {
+                if (connection.request.url.endsWith('/api/getcharts') && connection.request.method === RequestMethod.Get) {
+                    
+                    console.log(connection.request.headers.get("authorization"));
                     // get parameters from post request
                     var r = [];
           
@@ -64,7 +66,6 @@ export let fakeBackendProvider = {
                         r.push(item);
                     }
                     
-		console.log("here 2x");
                     connection.mockRespond(new Response(
                         new ResponseOptions({ status: 200, body: { items: JSON.stringify(r) } })
                     ));

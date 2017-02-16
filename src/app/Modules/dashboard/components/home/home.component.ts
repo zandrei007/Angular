@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
 			// {value: 3, label: "Mozilla/5.0 (Windows; U; Windows NT 5.0; zh-TW; rv:1.8.0.1) Gecko/20060111 Firefox/0.10"},
 			// {value: 4, label: "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.1.19) Gecko/20081202 Firefox (Debian-2.0.0.19-0etch1)"},
 		];
-	constructor(private httpService: HttpService, private http: Http) { 
+	constructor(private _httpService: HttpService, private http: Http) { 
 		
 	}
 
@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
 		this.MorrisIds = [];
 	 }
 	 addRandomChart(){
-		 this.http.post('/api/getcharts', "")
+		 this._httpService.Get('/api/getcharts','')
             .map((response: Response) => {
                 // login successful if there's a jwt token in the response
                 let token = response.json() && response.json().items;

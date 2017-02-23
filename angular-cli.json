@@ -26,7 +26,8 @@
 
             "navbarjs/font-awesome/css/font-awesome.min.css",
             "./navbarjs/metisMenu/metisMenu.min.css",
-            "./navbarjs/sb-admin-2.min.css"
+            "./navbarjs/sb-admin-2.css",
+            "./navbarjs/sidebar/sidebar.css"
         ],
         "scripts": [
             "../node_modules/jquery/dist/jquery.min.js",
@@ -37,7 +38,8 @@
             "./externalLib/morrisjs/morris.min.js",
 
             "./navbarjs/metisMenu/metisMenu.min.js",
-            "./navbarjs/sb-admin-2.min.js"
+            "./navbarjs/sb-admin-2.min.js",
+            "./navbarjs/sidebar/sidebar.js"
 
 
         ],

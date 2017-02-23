@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-declare var $:JQueryStatic;
+declare var $:any;
 @Component({
 	selector: 'sidebar-comp',
 	templateUrl: './sidebar.component.html',
@@ -11,7 +11,7 @@ export class SidebarComponent implements OnInit {
 	constructor() { }
 
 	ngOnInit() { 
-		// $(";i")
+		$("#side-menu").metisMenu();
 	}
 
 	MenuClicked(event){

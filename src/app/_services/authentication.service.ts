@@ -1,0 +1,48 @@
+import { Injectable } from '@angular/core';
+import { Http, Headers, Response, RequestOptions } from '@angular/http';
+import { Observable } from 'rxjs';
+import 'rxjs/add/operator/map'
+import { UserManager } from '../services/UserManager';
+ 
+@Injectable()
+export class AuthenticationService {
+    public token: string;
+ 
+    constructor(private http: Http, private _userManager: UserManager) {
+        // set token if saved in local storage
+        var currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        this.token = currentUser && currentUser.token;
+    }
+ 
+    login(username: string, password: string): Observable<boolean> {
+        
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+  
+        return this.http.post('http://localhost:64188/api/login', { UserName: username, Password: password })
+            .map((response: Response) => {
+                // login successful if there's a jwt token in the response
+                console.log(response.json());
+                let token = response.json() && response.json().Token;
+                if (token) {
+                    // set token property
+                    this._userManager.Token = token;
+                    this._userManager.UserName = response.json().Name;
+                    this._userManager.IsLoggedIn = true;
+                    // store username and jwt token in local storage to keep user logged in between page refreshes
+                    localStorage.setItem('currentUser', JSON.stringify({ username: response.json().Name, token: token }));
+                    
+                    // return true to indicate successful login
+                    return true;
+                } else {
+                    // return false to indicate failed login
+                    return false;
+                }
+            });
+    }
+ 
+    logout(): void {
+        this.token = null;
+        localStorage.removeItem('currentUser');
+    }
+}

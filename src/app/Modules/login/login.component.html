@@ -1,0 +1,106 @@
+<style type="text/css">
+    .bgvid {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+    }
+    
+    body {
+        background-image: linear-gradient(#79a06d, #79a06d);
+    }
+    
+    #box {
+        border: 1px solid rgb(200, 200, 200);
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 5px 2px;
+        background: rgba(200, 200, 200, 0.3);
+        border-radius: 4px;
+        top: 50px;
+    }
+    
+    h2 {
+        text-align: center;
+        color: #fff;
+    }
+    
+    input.glass {
+        background: rgba(0, 0, 0, 0.5);
+        color: #fff;
+    }
+    
+    .bgGradient {
+        background: #000000;
+        /* fallback for old browsers */
+        background: -webkit-linear-gradient(to left, #000000, #53346D);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to left, #000000, #53346D);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+    
+    .bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transition: opacity 5s;
+    }
+    
+    .hidden {
+        opacity: 0;
+    }
+</style>
+<!--<div class="vid-container animated fadeIn">
+    <img class="bgvid bg common" src="{{image}}" />
+
+    <div class="inner-container  animated" [ngClass]="{ 'fadeInDown': isLoaded && !wrongPassword, 'fadeOutDown': isLoggedIn , 'shake': isLoaded && wrongPassword}">
+        <img class="bgvid inner bg2 common" src="{{image}}" />
+        <form class="bootstrap-form-with-validation " (submit)="onSubmit($event, user.value, pass.value)">
+            <div class="box">
+                <h1>Login</h1>
+                <input #user type="text" class="form-control input-lg" placeholder="Username" />
+                <input #pass type="password" class="form-control input-lg" placeholder="Password" />
+                <button type="submit">Login</button>
+                <p>Test your luck: <span (click)="changeBg()">Lucky Link!</span></p>
+            </div>
+        </form>
+    </div>
+</div>-->
+
+
+<div class="vid-container bgvid bgGradient animated fadeIn">
+    <div class="bg"></div>
+    <div class="bg hidden"></div>
+    <!--<img class="bgvid" src="{{image}}" />-->
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="col-md-offset-4 col-md-4 animated" [ngClass]="{ 'fadeInDown': isLoaded && !wrongPassword, 'fadeOutDown': _userManager.IsLoggedIn , 'shake': isLoaded && wrongPassword}" id="box">
+                <h2 (click)="changeBg()">Login</h2>
+                <hr>
+                <form class="form-horizontal" (submit)="onSubmit($event, user.value, pass.value)" id="contact_form">
+                    <fieldset>
+                        <!-- Form Name -->
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <input #user name="first_name" placeholder="Username" class="form-control glass" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                    <input #pass name="email" placeholder="Password" class="form-control glass" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-md btn-danger pull-right">Login </button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>

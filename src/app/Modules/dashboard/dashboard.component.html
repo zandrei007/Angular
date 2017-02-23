@@ -1,0 +1,6 @@
+<div class="animated" [ngClass]="{ 'fadeIn': isLoaded && _userManager.IsLoggedIn , 'fadeOut': isLoaded && !_userManager.IsLoggedIn }">
+    <navbar></navbar>
+    <div id="page-wrapper">
+        <router-outlet></router-outlet>
+    </div>
+</div>

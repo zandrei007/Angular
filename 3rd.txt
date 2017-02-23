@@ -1,1 +1,40 @@
+
+https://www.gurustop.net/blog/2016/11/18/3821/jquery-angular2-angularcli-how-to
 npm install jquery
+npm install @types/jquery --save-dev
+npm install ng2-bootstrap bootstrap --save
+npm install ng2-dragula dragula --save
+
+
+debug chrome:
+C:\Program Files (x86)\Google\Chrome\Application\chrome.exe --remote-debugging-port=9222
+
+.vscode/launch.json{
+    "version": "0.2.0",
+    "configurations": [{
+
+            "name": "Launch Chrome against localhost",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:4200",
+            "webRoot": "${workspaceRoot}/Admin",
+            "sourceMaps": true,
+            "diagnosticLogging": true
+
+        },
+        {
+            "name": "Attach to Chrome",
+            "type": "chrome",
+            "request": "attach",
+            "port": 9222,
+            "webRoot": "${workspaceRoot}/Admin"
+
+        }
+    ]
+}
+
+
+  ./angular-cli.json  scripts: [] 
+"../node_modules/jquery/dist/jquery.min.js"
+
+http://jasonwatmore.com/post/2016/08/16/angular-2-jwt-authentication-example-tutorial

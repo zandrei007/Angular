@@ -28,3 +28,9 @@ app-root:empty+.loading h1 {
     text-align: center;
     transform: translate(0, -50%);
 }
+
+a[disabled] {
+    opacity: .4;
+    cursor: default !important;
+    pointer-events: none;
+}

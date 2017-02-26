@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DragulaService } from 'ng2-dragula';
 
+declare var $:any;
 @Component({
 	selector: 'c1',
 	templateUrl: './c1.component.html',
@@ -55,5 +56,13 @@ export class C1Component implements OnInit {
     });
   }
 
-	ngOnInit() { }
+	ngOnInit() {
+    var data = [{ id: 0, text: 'enhancement' }, { id: 1, text: 'bug' }, { id: 2, text: 'duplicate' }, { id: 3, text: 'invalid' }, { id: 4, text: 'wontfix' }];
+   $(".js-example-basic-multiple").select2();
+
+ 
+    $(".js-example-data-array").select2({
+      data: data
+    });
+   }
 }

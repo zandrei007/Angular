@@ -38,3 +38,16 @@ C:\Program Files (x86)\Google\Chrome\Application\chrome.exe --remote-debugging-p
 "../node_modules/jquery/dist/jquery.min.js"
 
 http://jasonwatmore.com/post/2016/08/16/angular-2-jwt-authentication-example-tutorial
+
+
+https://medium.com/developers-writing/building-a-desktop-application-with-electron-204203eeb658#.9wd3293lx
+npm install electron-packager --save-dev
+npm install electron-packager -g
+electron-packager ./ Test --all --version-0.0.1 --out=/export
+electron-packager <location of project> <name of project> <platform> <architecture> <electron version> <optional options>
+electron-packager ~/Projects/sound-machine SoundMachine --all --version=0.30.2 --out=~/Desktop --overwrite --icon=~/Projects/sound-machine/app/img/app-icon.icns
+
+-- phone
+https://cordova.apache.org
+https://ionicframework.com
+http://phonegap.com

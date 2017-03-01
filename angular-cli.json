@@ -28,6 +28,7 @@
             "./navbarjs/metisMenu/metisMenu.min.css",
             "./navbarjs/sb-admin-2.css",
             "./externalLib/select2/css/select2.min.css",
+            "./externalLib/datatables/jquery.dataTables.min.css",
             "./navbarjs/sidebar/sidebar.css"
         ],
         "scripts": [
@@ -38,6 +39,7 @@
             "./externalLib/raphael/raphael.min.js",
             "./externalLib/morrisjs/morris.min.js",
             "./externalLib/select2/js/select2.full.min.js",
+            "./externalLib/datatables/jquery.dataTables.min.js",
 
             "./navbarjs/metisMenu/metisMenu.min.js",
             "./navbarjs/sb-admin-2.min.js",

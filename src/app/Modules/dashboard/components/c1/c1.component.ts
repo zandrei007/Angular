@@ -57,12 +57,29 @@ export class C1Component implements OnInit {
   }
 
 	ngOnInit() {
+      $(document).ready(function() {
+          $('#example').DataTable( {
+            "dom": '<f<t>lip>',
+            "scrollY": "200px",
+            "processing": true, 
+            "serverSide": true,
+            "ajax": "http://localhost:64188/api/login/search",
+            "columnDefs": [ {
+              "targets": 0,
+              "orderable": false
+            } ]
+          } );
+      } );
+
     var data = [{ id: 0, text: 'enhancement' }, { id: 1, text: 'bug' }, { id: 2, text: 'duplicate' }, { id: 3, text: 'invalid' }, { id: 4, text: 'wontfix' }];
    $(".js-example-basic-multiple").select2();
 
  
     $(".js-example-data-array").select2({
-      data: data
+      data: data,
+      query: function(q){
+        console.log(q.term);
+      }
     });
    }
 }

@@ -14,7 +14,7 @@ import { TopnavComponent } from './components/navbar/topnav/topnav.component';
     CommonModule, RouterModule, NavbarModule, DragulaModule
   ],
   providers: [DashboardRouteGuard],
-  declarations: [DashboardComponent, SidebarComponent, TopnavComponent],
+  declarations: [DashboardComponent,HomeComponent,C1Component , SidebarComponent, TopnavComponent],
   exports: [DashboardComponent]
 })
 export class DashboardModule { }

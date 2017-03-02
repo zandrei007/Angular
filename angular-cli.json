@@ -28,7 +28,11 @@
             "./navbarjs/metisMenu/metisMenu.min.css",
             "./navbarjs/sb-admin-2.css",
             "./externalLib/select2/css/select2.min.css",
-            "./externalLib/datatables/jquery.dataTables.min.css",
+
+            "./externalLib/datatables/media/css/dataTables.bootstrap.min.css",
+            "./externalLib/datatables/extensions/Responsive/css/responsive.bootstrap.min.css",
+            "./externalLib/datatables/extensions/Buttons/css/buttons.dataTables.min.css",
+            
             "./navbarjs/sidebar/sidebar.css"
         ],
         "scripts": [
@@ -39,7 +43,15 @@
             "./externalLib/raphael/raphael.min.js",
             "./externalLib/morrisjs/morris.min.js",
             "./externalLib/select2/js/select2.full.min.js",
-            "./externalLib/datatables/jquery.dataTables.min.js",
+            "./externalLib/datatables/media/js/jquery.dataTables.min.js",
+            "./externalLib/datatables/media/js/dataTables.bootstrap.min.js",
+
+            "./externalLib/datatables/extensions/Responsive/js/dataTables.responsive.js",
+            "./externalLib/datatables/extensions/Responsive/js/responsive.bootstrap.min.js",
+            "./externalLib/datatables/extensions/Buttons/js/dataTables.buttons.min.js",
+            "./externalLib/datatables/extensions/Buttons/js/buttons.colVis.min.js",
+            "./externalLib/datatables/extensions/Buttons/js/buttons.flash.min.js",
+            "./externalLib/datatables/extensions/Buttons/js/buttons.html5.min.js",
 
             "./navbarjs/metisMenu/metisMenu.min.js",
             "./navbarjs/sb-admin-2.min.js",

@@ -59,15 +59,25 @@ export class C1Component implements OnInit {
 	ngOnInit() {
       $(document).ready(function() {
           $('#example').DataTable( {
-            "dom": '<f<t>lip>',
+            "dom": "<'row'<'col-sm-12'Bftr>>" +
+"<'row'<'col-sm-4'l><'col-sm-8'p>>",// '<Bf<t>lip>', // '<"top"i>rt<"bottom"flp><"clear">'
             "scrollY": "200px",
+            "scrollX": true,
             "processing": true, 
             "serverSide": true,
             "ajax": "http://localhost:64188/api/login/search",
             "columnDefs": [ {
               "targets": 0,
               "orderable": false
-            } ]
+            },
+             {
+            className: 'control',
+            orderable: false,
+            targets:   1
+        } ],
+        buttons: [
+            'colvis', 'copy', 'csv', 'excel', 'pdf'
+        ]
           } );
       } );
 
